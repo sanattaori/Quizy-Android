@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class CorrectWrongOverlay extends StatefulWidget {
   final bool _isCorrect;
+
   CorrectWrongOverlay(this._isCorrect);
 
   @override
