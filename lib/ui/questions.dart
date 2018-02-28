@@ -13,15 +13,17 @@ class QuestionText extends StatefulWidget {
 
 class QuestionTextState extends State<QuestionText> with SingleTickerProviderStateMixin {
 
+  //animate font size
   Animation<double> _fontSizeAnimation; 
   AnimationController _fontSizeAnimationController;
 
   @override
     void initState() {
-      _fontSizeAnimationController = new AnimationController(duration: new Duration(milliseconds: 500 ),vsync: this); 
-      _fontSizeAnimation = new CurvedAnimation(parent: _fontSizeAnimationController,curve: Curves.linear);
       super.initState();
-       
+      _fontSizeAnimationController = new AnimationController(duration: new Duration(milliseconds: 1000 ),vsync: this); 
+      _fontSizeAnimation = new CurvedAnimation(parent: _fontSizeAnimationController,curve: Curves.bounceOut);
+      _fontSizeAnimation.addListener(()=> this.setState((){}));
+      _fontSizeAnimationController.forward();
     }
 
   @override
@@ -32,15 +34,12 @@ class QuestionTextState extends State<QuestionText> with SingleTickerProviderSta
                 child: new Padding(
                   padding: new EdgeInsets.symmetric(vertical: 20.0),
                   child: new Center(
-                    child: new Text("Statement" + widget._questionNumber.toString() + " :"+ widget._question,
-                    style: new TextStyle(fontSize: _fontSizeAnimation.value * 15
+                    child: new Text(" Statement" + widget._questionNumber.toString() + " :"+ widget._question,
+                    style: new TextStyle(fontSize: _fontSizeAnimation.value * 15),
+                    ),
                   ),
-                  
-                ),
-              ),
                 ),
               ),
             );
-  
-
+  }
 }
