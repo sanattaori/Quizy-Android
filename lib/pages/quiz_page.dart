@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizy/ui/answer.dart';
 import 'package:quizy/utils/question.dart';
 import 'package:quizy/utils/quiz.dart';
+import 'package:quizy/ui/questions.dart';
 
 class QuizPage extends StatefulWidget {
 
@@ -18,19 +19,7 @@ class QuizPageState extends State<QuizPage> {
          new Column(
            children: <Widget>[
             new AnswerButton(true, () =>debugPrint("true ")),
-            new Material(
-              color:  Colors.white,
-              child: new Center(
-                child: new Padding(
-                  padding: new EdgeInsets.symmetric(vertical: 20.0),
-                  child: new Center(
-                    child: new Text("Ravi's My freind"),
-                  ),
-                  
-                ),
-              ),
-
-            ),
+            new QuestionText("Ravi is my best friend ", 1),
             new AnswerButton(false,()=>debugPrint("False")), 
 
            ],
