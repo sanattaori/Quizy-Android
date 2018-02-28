@@ -4,6 +4,7 @@ import 'package:quizy/utils/question.dart';
 import 'package:quizy/utils/quiz.dart';
 import 'package:quizy/ui/questions.dart';
 import 'package:quizy/ui/correct_wrong.dart';
+import 'package:quizy/pages/score_page.dart';
 
 class QuizPage extends StatefulWidget {
 
@@ -54,7 +55,21 @@ class QuizPageState extends State<QuizPage> {
             new AnswerButton(false,()=>handleAnswer(false)),
            ],
          ),
-         overlayVisible == true ? new CorrectWrongOverlay(isCorrect) : new Container(),
+         overlayVisible == true ? new CorrectWrongOverlay(
+           isCorrect, () {
+             if (quiz.length == questionNumber) {
+               Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(builder: (BuildContext context) => new ScorePage(quiz.score, quiz.length)),(Route route) => route == null);
+               return;
+             }
+             currentQuestion = quiz.nextQuestion;
+             this.setState((){
+               overlayVisible = false;
+               questionText = currentQuestion.question;
+               questionNumber = quiz.question_number;
+             });
+
+         }
+         ) : new Container(),
        ],
     );
   }
