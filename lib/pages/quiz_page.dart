@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:quizy/ui/answer.dart';
 import 'package:quizy/utils/question.dart';
 import 'package:quizy/utils/quiz.dart';
 
@@ -17,33 +17,22 @@ class QuizPageState extends State<QuizPage> {
        children: <Widget>[
          new Column(
            children: <Widget>[
-             new Expanded(
-               child: new Material(
-             color: Colors.greenAccent,
-             child: new InkWell(
-               onTap:  ()=> debugPrint("answer is true"),
-               child: new Center(
-                 child: new Container(
-                 child: new Text("True"),
-               ),
-               )
-             ),
-           ),
-             ),
-             new Expanded(
-               child: new Material(
-             color: Colors.redAccent,
-             child: new InkWell(
-               onTap:  ()=> debugPrint("answer is false"),
-               child: new Center(
-                 child: new Container(
-                 child: new Text("False"),
-               ),
-               )
-             ),
-           ),
-             ),
-             
+            new AnswerButton(true, () =>debugPrint("true ")),
+            new Material(
+              color:  Colors.white,
+              child: new Center(
+                child: new Padding(
+                  padding: new EdgeInsets.symmetric(vertical: 20.0),
+                  child: new Center(
+                    child: new Text("Ravi's My freind"),
+                  ),
+                  
+                ),
+              ),
+
+            ),
+            new AnswerButton(false,()=>debugPrint("False")), 
+
            ],
            
          )
