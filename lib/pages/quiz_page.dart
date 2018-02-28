@@ -23,11 +23,9 @@ class QuizPageState extends State<QuizPage> {
             new AnswerButton(true, () =>debugPrint("true ")),
             new QuestionText("Ravi is my best friend ", 1),
             new AnswerButton(false,()=>debugPrint("False")), 
-
            ],
-           
          ),
-         new CorrectWrongOverlay(),
+         new CorrectWrongOverlay(true),
        ],
     );
   }
