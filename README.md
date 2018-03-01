@@ -1,4 +1,4 @@
-# quizy
+# Quizy
 
 A new Flutter Quiz App,This Project is completed.
 I made this project for my better understanding in dart and understanding of flutter framework.
@@ -6,7 +6,7 @@ I made this project for my better understanding in dart and understanding of flu
 ## To run this Project
 
  - **Clone Quizy Repository** `git clone https://github.com/sanattaori/Quizy-Android.git && cd Quizy-Android`
- - **Setup up flutter** [Install Flutter] (https://flutter.io/get-started/install/)
+ - **Setup up flutter** https://flutter.io/get-started/install/
  - **Run the main.dart** `flutter run`
 
 ## Getting Started with Flutter Guide
